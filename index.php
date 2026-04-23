@@ -41,7 +41,7 @@ $movies =[
     new Movie("Interstellar", 2014, "Un gruppo di esploratori attraversa un wormhole nello spazio nel tentativo di garantire la sopravvivenza dell'umanità.", 8, $generi[0]),
     ];
 
-
+var_dump($movies)
 
     
 ?>
@@ -53,9 +53,26 @@ $movies =[
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>OOP</title>
 </head>
 <body>
     <h1>Movies</h1>
+
+    <div class="container py-5">
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+
+        <?php foreach ($movies as $movie ) { ?>
+
+            <div class="card shadow-sm" style="width: 15rem;">                
+                <div class="card-body text-center">
+                    <h5 class="card-title text-truncate"><?php echo $movie->nome; ?></h5>
+                    <p class="card-subtitle mb-2 text-muted text-truncate"><?php echo  $movie->anno; ?></p>
+                    <p class="card-text small mb-1"><?php echo  $movie->descrizione; ?></p>
+                    <p class="card-text small text-uppercase text-secondary"><?php echo$movie->setVote(); ?></p>
+                </div>
+            </div>
+
+        <?php } ?>
 </body>
 </html>
